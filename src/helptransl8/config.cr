@@ -5,12 +5,12 @@ module Helptransl8
   class Config
     def init(url : String)
       if url
-        puts "Created #{"helptransl8.yml".colorize(:green)}"
         File.write Helptransl8::HELPTRANSL8_YML, <<-YAML
 --- # Url for origin repo to translate
 url: #{url}
 
 YAML
+        puts "Created #{"helptransl8.yml".colorize(:green)} with #{url.colorize(:green)}"
       else
         puts "Add url param"
       end

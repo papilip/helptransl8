@@ -13,7 +13,7 @@ module Helptransl8
         cmds << "mkdir -p #{@prefix_dir}"
         process_run(cmds)
       else
-        @prefix_dir = ""
+        @prefix_dir = "./"
       end
 
       @files = [] of String
@@ -73,7 +73,11 @@ module Helptransl8
         paths = file.split("/")
         name = paths.delete_at -1
         path = paths.join "/"
-        dot_file = "#{path}/.#{name}"
+        if path.blank?
+          dot_file = ".#{name}"
+        else
+          dot_file = "#{path}/.#{name}"
+        end
 
         if File.exists? "#{@prefix_dir}#{file}"
           # Test si le fichier dot existe et s’il y a des différences
@@ -84,7 +88,8 @@ module Helptransl8
         else
           @todos << file
           # Déplace le fichier et le copie en dot file
-          cmds << "mkdir -p #{@prefix_dir}#{path}"
+          mkdir_path = "#{@prefix_dir}#{path}"
+          cmds << "mkdir -p #{mkdir_path}" unless mkdir_path.blank?
           cmds << "cp #{Helptransl8::ORIGINAL_REPO}/#{file} #{@prefix_dir}#{file}"
           cmds << "cp #{@prefix_dir}#{file} #{@prefix_dir}#{dot_file}"
           # cmds << "=" * 77
