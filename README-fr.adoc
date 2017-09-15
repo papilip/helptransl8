@@ -1,0 +1,48 @@
+HelpTransl8
+===========
+
+HelpTransl8 est un utilitaire pour les traducteurs de documentation.
+
+Le principal problème lorqu’une doc est traduite, c’est sa maintenance. En effet la doc originale (souvent en Anglais) évolue. Alors comment se repérer entre la version que nous avons traduite et la dernière version ?
+
+HelpTransl8 est une réponse à cette question : chaque fichier de la documentation originale est conservée dans un fichier caché portant le même nom. Ainsi lors de la mise à jour HelpTransl8 effectue une comparation entre le nouveau fichier et l‘ancien. Si le fichier nouveau est différent alors il remplace le fichier caché et informe l’utilisateur dans une TODO list.
+
+Dépendance
+----------
+
+* `brew install sha2` HelpTransl8 utilise la commande `sha2` qui est disponible sous macOS.
+
+Installation
+------------
+
+* `crystal build src/helptransl8.cr` Compilation avec Crystal
+
+Usage
+-----
+
+* `helptransl8 --init adresse_du_depot_original` Initialiser le programme avec l’adresse url du dépôt original sur laquelle va se baser la traduction.
+
+* `helptransl8 --check` vérifie le dépôt origibal avec notre copie.
+
+* `helptransl8 --help` pour obtenir de l’aide sur les commandes disponibles.
+
+Development
+-----------
+
+* `CRYSTAL_ENV=devel|development|test ./helptransl8` Utiliser le programme en initialisant l’environnement.
+
+* Il manque des tests !
+
+Contributing
+------------
+
+1. Fork it ( https://github.com/[your-github-name]/helptransl8/fork )
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
+
+Contributors
+------------
+
+- Philippe Nénert [papilip] (https://github.com/papilip) - Créateur, mainteneur
