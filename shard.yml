@@ -1,5 +1,5 @@
 name: helptransl8
-version: 0.0.0
+version: 0.0.1
 
 authors:
   - Philippe Nénert (@papilip) <ma@papilip.me>
@@ -10,4 +10,4 @@ targets:
 
 crystal: 0.23.1
 
-license: MIT
+license: BSD
