@@ -116,7 +116,7 @@ module Helptransl8
       list_all_files
       cmds = prepare_commands
       write_todo unless @todos.empty?
-      cmds << "rm -rf #{Helptransl8::ORIGINAL_REPO}" unless ENV["CRYSTAL_ENV"]
+      cmds << "rm -rf #{Helptransl8::ORIGINAL_REPO}" if ENV["CRYSTAL_ENV"].blank?
       process_run(cmds)
     end
 
