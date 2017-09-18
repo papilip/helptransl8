@@ -5,10 +5,10 @@ ENV["CRYSTAL_ENV"] ||= ""
 
 OptionParser.parse! do |parser|
   parser.banner = <<-BANNER
-HelpTransl8 helps translators check the original documentation repository by comparing each file and listing the files that have been modified
+  HelpTransl8 helps translators check the original documentation repository by comparing each file and listing the files that have been modified
 
-Usage: helptransl8 [arguments]
-BANNER
+  Usage: helptransl8 [arguments]
+  BANNER
 
   parser.invalid_option do
     puts parser

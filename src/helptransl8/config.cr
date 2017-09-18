@@ -6,10 +6,10 @@ module Helptransl8
     def init(url : String)
       if url
         File.write Helptransl8::HELPTRANSL8_YML, <<-YAML
---- # Url for origin repo to translate
-url: #{url}
+        --- # Url for origin repo to translate
+        url: #{url}
 
-YAML
+        YAML
         puts "Created #{"helptransl8.yml".colorize(:green)} with #{url.colorize(:green)}"
       else
         puts "Add url param"
