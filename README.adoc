@@ -1,33 +1,62 @@
-helptransl8
+HelpTransl8
 ===========
 
-TODO: Write a description here
+HelpTransl8 is a tool for document translators.
+
+Origin of development and its response
+--------------------------------------
+The main problem when documentation is translated is maintenance. The original documentation (often in english) evolves. So how do we locate between the version we translated and the latest version?
+
+HelpTransl8 is an answer to this question: each file of the original documentation is kept in a hidden file with the same name. Thus, when updating HelpTransl8 compares the new file with the old one. If the new file is different then it replaces the hidden file and informs the user in a TODO list. If the file does not exist, it is created with its original version!
+
 
 Installation
 ------------
 
-TODO: Write installation instructions here
+macOS
+~~~~~
+```bash
+brew brew tap papilip/brew
+brew install helptransl8
+```
+
+From source (check dependencies :)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Crystal https://crystal-lang.org/
+- sha2 https://fr.wikipedia.org/wiki/SHA-2
+
+```bash
+git clone https://github.com/papilip/helptransl8.git && cd helptransl8
+crystal build src/helptransl8.cr --release
+```
+
+
+Quickstart
+----------
+```bash
+helptransl8 --init=https://url_original_repository
+helptransl8 --check
+cat TODO_helptransl8.yml
+```
+
 
 Usage
 -----
+- `helptransl8 -c | --check`    Check each file with the original repository.
+- `helptransl8 -h | --help`     Show help with all commands.
+- `helptransl8 -i | --init=url_du_depot_original` Generates the helptransl8.yml file with original repository url.
+- `helptransl8 -p | --print`    Print URL from original repository.
+- `helptransl8 -v | --version`  Shows the program version.
 
-TODO: Write usage instructions here
 
 Development
 -----------
+- `CRYSTAL_ENV=devel|development|test ./helptransl8` Using the program by initializing the environment.
+- Tests are missing!
 
-TODO: Write development instructions here
+Pull Requests welcome !
 
-Contributing
-------------
-
-1. Fork it ( https://github.com/[your-github-name]/helptransl8/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
 
 Contributors
-------------
-
-- [[your-github-name]](https://github.com/[your-github-name])  - creator, maintainer
+-------------
+- Philippe Nénert (https://github.com/papilip/[@papilip])  - Creator, maintainer

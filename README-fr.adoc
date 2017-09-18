@@ -1,14 +1,14 @@
 HelpTransl8
 ===========
 
-HelpTransl8 est un utilitaire pour les traducteurs de documentations.
+HelpTransl8 est un utilitaire pour les traducteurs de documentation.
 
 
 Origine du dévelopment et sa réponse
 ------------------------------------
-Le principal problème lorqu’une documentation est traduite, c’est sa maintenance. En effet la documentation originale (souvent en Anglais) évolue. Alors comment se repérer entre la version que nous avons traduite et la dernière version ?
+Le principal problème lorqu’une documentation est traduite, c’est sa maintenance. En effet la documentation originale (souvent en anglais) évolue. Alors comment se repérer entre la version que nous avons traduite et la dernière version ?
 
-HelpTransl8 est une réponse à cette question : chaque fichier de la documentation originale est conservée dans un fichier caché portant le même nom. Ainsi lors de la mise à jour HelpTransl8 effectue une comparation entre le nouveau fichier et l‘ancien. Si le fichier nouveau est différent alors il remplace le fichier caché et informe l’utilisateur dans une TODO list. Si le fichier n’existe pas, il est créé avec sa version originale !
+HelpTransl8 est une réponse à cette question : chaque fichier de la documentation originale est conservé dans un fichier caché portant le même nom. Ainsi lors de la mise à jour, HelpTransl8 effectue une comparaison entre le nouveau fichier et l‘ancien. Si le fichier nouveau est différent alors il remplace le fichier caché et informe l’utilisateur dans une TODO liste. Si le fichier n’existe pas, il est créé avec sa version originale !
 
 
 Installation
@@ -43,9 +43,9 @@ cat TODO_helptransl8.yml
 
 Usage
 -----
-- `helptransl8 -c | --check`    Vérifie le dépôt origibal avec notre copie.
+- `helptransl8 -c | --check`    Vérifie le dépôt original avec notre copie.
 - `helptransl8 -h | --help`     Pour obtenir de l’aide sur les commandes disponibles.
-- `helptransl8 -i | --init=url_du_depot_original` Initialiser le programme avec l’adresse url du dépôt original sur laquelle va se baser la traduction.
+- `helptransl8 -i | --init=url_du_depot_original` Initialiser le programme avec l’adresse url du dépôt original sur lequelle va se baser la traduction.
 - `helptransl8 -p | --print`    Affiche l’adresse du dépôt original.
 - `helptransl8 -v | --version`  Donne la version du programme.
 
@@ -60,4 +60,4 @@ Pull Requests bienvenues !
 
 Contributeurs
 -------------
-- Philippe Nénert (@papilip) https://github.com/papilip - Créateur, mainteneur
+- Philippe Nénert (https://github.com/papilip/[@papilip]) - Créateur, mainteneur
