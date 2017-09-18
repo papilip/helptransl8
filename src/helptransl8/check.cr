@@ -4,16 +4,13 @@ require "yaml"
 module Helptransl8
   class Check
     def initialize
-      @prefix_dir = ""
+      @prefix_dir = "./"
 
-      case ENV["CRYSTAL_ENV"]?
-      when "devel" || "development" || "test"
+      if %w(devel development test).includes?(ENV["CRYSTAL_ENV"])
         @prefix_dir = "helptransl8_#{ENV["CRYSTAL_ENV"]}_dir/"
         cmds = [] of String
         cmds << "mkdir -p #{@prefix_dir}"
         process_run(cmds)
-      else
-        @prefix_dir = "./"
       end
 
       @files = [] of String
@@ -96,7 +93,7 @@ module Helptransl8
         end
       end
 
-      return cmds
+      cmds
     end
 
     def process_run(cmds)
