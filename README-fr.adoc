@@ -1,48 +1,63 @@
 HelpTransl8
 ===========
 
-HelpTransl8 est un utilitaire pour les traducteurs de documentation.
+HelpTransl8 est un utilitaire pour les traducteurs de documentations.
 
-Le principal problème lorqu’une doc est traduite, c’est sa maintenance. En effet la doc originale (souvent en Anglais) évolue. Alors comment se repérer entre la version que nous avons traduite et la dernière version ?
 
-HelpTransl8 est une réponse à cette question : chaque fichier de la documentation originale est conservée dans un fichier caché portant le même nom. Ainsi lors de la mise à jour HelpTransl8 effectue une comparation entre le nouveau fichier et l‘ancien. Si le fichier nouveau est différent alors il remplace le fichier caché et informe l’utilisateur dans une TODO list.
+Origine du dévelopment et sa réponse
+------------------------------------
+Le principal problème lorqu’une documentation est traduite, c’est sa maintenance. En effet la documentation originale (souvent en Anglais) évolue. Alors comment se repérer entre la version que nous avons traduite et la dernière version ?
 
-Dépendance
-----------
+HelpTransl8 est une réponse à cette question : chaque fichier de la documentation originale est conservée dans un fichier caché portant le même nom. Ainsi lors de la mise à jour HelpTransl8 effectue une comparation entre le nouveau fichier et l‘ancien. Si le fichier nouveau est différent alors il remplace le fichier caché et informe l’utilisateur dans une TODO list. Si le fichier n’existe pas, il est créé avec sa version originale !
 
-* `brew install sha2` HelpTransl8 utilise la commande `sha2` qui est disponible sous macOS.
 
 Installation
 ------------
 
-* `crystal build src/helptransl8.cr` Compilation avec Crystal
+macOS
+~~~~~
+```bash
+brew brew tap papilip/brew
+brew install helptransl8
+```
+
+Depuis le code source (vérifiez les dépendances suivantes :)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Crystal https://crystal-lang.org/
+- sha2 https://fr.wikipedia.org/wiki/SHA-2
+
+```bash
+git clone https://github.com/papilip/helptransl8.git && cd helptransl8
+crystal build src/helptransl8.cr --release
+```
+
+
+Démarrage rapide
+----------------
+```bash
+helptransl8 --init=https://url_du_depot_original
+helptransl8 --check
+cat TODO_helptransl8.yml
+```
+
 
 Usage
 -----
+- `helptransl8 -c | --check`    Vérifie le dépôt origibal avec notre copie.
+- `helptransl8 -h | --help`     Pour obtenir de l’aide sur les commandes disponibles.
+- `helptransl8 -i | --init=url_du_depot_original` Initialiser le programme avec l’adresse url du dépôt original sur laquelle va se baser la traduction.
+- `helptransl8 -p | --print`    Affiche l’adresse du dépôt original.
+- `helptransl8 -v | --version`  Donne la version du programme.
 
-* `helptransl8 --init adresse_du_depot_original` Initialiser le programme avec l’adresse url du dépôt original sur laquelle va se baser la traduction.
-
-* `helptransl8 --check` vérifie le dépôt origibal avec notre copie.
-
-* `helptransl8 --help` pour obtenir de l’aide sur les commandes disponibles.
 
 Development
 -----------
+- `CRYSTAL_ENV=devel|development|test ./helptransl8` Utiliser le programme en initialisant l’environnement.
+- Il manque des tests !
 
-* `CRYSTAL_ENV=devel|development|test ./helptransl8` Utiliser le programme en initialisant l’environnement.
+Pull Requests bienvenues !
 
-* Il manque des tests !
 
-Contributing
-------------
-
-1. Fork it ( https://github.com/[your-github-name]/helptransl8/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
-
-Contributors
-------------
-
-- Philippe Nénert [papilip] (https://github.com/papilip) - Créateur, mainteneur
+Contributeurs
+-------------
+- Philippe Nénert (@papilip) https://github.com/papilip - Créateur, mainteneur
